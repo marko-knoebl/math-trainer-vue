@@ -1,8 +1,9 @@
-import BasicArithmetic from "../basic-arithmetic/BasicArithmetic.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../home/HomeView.vue";
 import TimesTableBingo from "../times-table-bingo/TimesTableBingo.vue";
 import EquationsNegative from "../equations-negative/EquationsNegative.vue";
+import FractionsExercise from "@/fractions/FractionsExercise.vue";
+import BasicArithmeticVue from "@/basic-arithmetic/BasicArithmetic.vue";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -17,8 +18,9 @@ const router = createRouter({
       name: "Einmaleins-Bingo",
       component: TimesTableBingo,
     },
+    { path: "/basic-arithmetic", name: "", component: BasicArithmeticVue },
     { path: "/equations-negative", name: "", component: EquationsNegative },
-    { path: "/basic-arithmetic", name: "", component: BasicArithmetic },
+    { path: "/fractions", name: "fractions", component: FractionsExercise },
   ],
 });
 
