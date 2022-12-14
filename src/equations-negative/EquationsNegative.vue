@@ -34,8 +34,7 @@
 import CorrectIncorrect from "@/components/CorrectIncorrect.vue";
 import ExerciseStatistics from "@/components/ExerciseStatistics.vue";
 import { ref, computed, onMounted } from "vue";
-import { randIntInclusive } from "../randInt";
-import { randSign } from "../randSign";
+import { randIntInclusive, randSign } from "../myMath";
 
 type Exercise = {
   coeffLeft: number;

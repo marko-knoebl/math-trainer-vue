@@ -1,5 +1,5 @@
 import type { Exercise } from "@/Exercise";
-import { randIntInclusive } from "@/randInt";
+import { randIntInclusive } from "@/myMath";
 
 type Parameters = {
   numberSet: "positive" | "positive-or-negative";

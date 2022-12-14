@@ -1,5 +1,5 @@
 import type { Exercise } from "@/Exercise";
-import { randIntInclusive } from "@/randInt";
+import { randIntInclusive } from "@/myMath";
 
 const OPERATIONS = ["addition", "subtraction", "multiplication", "division"];
 const LIMIT_ADDITION = 1000;
