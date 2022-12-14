@@ -10,6 +10,7 @@ export type ExerciseHistory = {
   submittedAnswer: Ref<string | null>;
   submitAnswer: (answer: string) => void;
   skip: () => void;
+  newExercise: () => void;
   answerStatus: Ref<"correct" | "incorrect" | "none">;
   stats: Ref<{
     correct: number;
@@ -55,12 +56,16 @@ export function useExerciseNew(
     stats.value.incorrect++;
     exercise.value = exerciseCreator();
   }
+  function newExercise() {
+    exercise.value = exerciseCreator();
+  }
   return {
     exercise: exercise,
     /** latest submitted answer - can have a value for some seconds */
     submittedAnswer: submittedAnswer,
     submitAnswer: submitAnswer,
     skip,
+    newExercise,
     answerStatus: answerStatus,
     stats,
   };

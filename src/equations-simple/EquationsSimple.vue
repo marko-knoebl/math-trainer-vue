@@ -5,6 +5,14 @@
       :correct="exerciseHist.answerStatus.value === 'correct'"
     />
     <h1>Einfache Gleichungen</h1>
+    <div>
+      <select v-model="numberSet">
+        <option value="positive">nur positive Zahlen</option>
+        <option value="positive-or-negative">
+          positive und negative Zahlen
+        </option>
+      </select>
+    </div>
     <form
       @submit.prevent="exerciseHist.submitAnswer(String(answerInput))"
       :style="{
@@ -41,8 +49,10 @@ import CorrectIncorrect from "@/components/CorrectIncorrect.vue";
 import ExerciseStatistics from "@/components/ExerciseStatistics.vue";
 import MathExercise from "@/MathExercise.vue";
 import { useExerciseNew } from "@/useExercise";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import { newExercise } from "./exercise";
+
+const numberSet = ref<"positive" | "positive-or-negative">("positive");
 
 const answerInput = ref<string | number>("");
 
@@ -50,5 +60,12 @@ function onCorrect() {
   answerInput.value = "";
 }
 
-const exerciseHist = useExerciseNew(newExercise, onCorrect);
+const exerciseHist = useExerciseNew(
+  () => newExercise(numberSet.value === "positive-or-negative"),
+  onCorrect
+);
+
+watchEffect(() => {
+  exerciseHist.newExercise();
+});
 </script>
