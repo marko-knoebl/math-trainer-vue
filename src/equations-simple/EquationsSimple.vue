@@ -40,7 +40,7 @@
 import CorrectIncorrect from "@/components/CorrectIncorrect.vue";
 import ExerciseStatistics from "@/components/ExerciseStatistics.vue";
 import MathExercise from "@/MathExercise.vue";
-import { useExerciseNew } from "@/useExerciseNew";
+import { useExerciseNew } from "@/useExercise";
 import { ref } from "vue";
 import { newExercise } from "./exercise";
 

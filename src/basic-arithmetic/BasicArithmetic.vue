@@ -15,7 +15,7 @@
       }"
     >
       <div>
-        {{ exerciseText }}
+        {{ (exerciseHist.exercise.value as any).toString() }}
         <input
           v-model="answerInput"
           type="number"
@@ -37,9 +37,9 @@
 import CorrectIncorrect from "@/components/CorrectIncorrect.vue";
 import ExerciseStatistics from "@/components/ExerciseStatistics.vue";
 import MathExercise from "@/MathExercise.vue";
-import { useExerciseNew } from "@/useExerciseNew";
-import { computed, ref } from "vue";
-import { newExercise, type BasicArithmeticExercise } from "./exercise";
+import { useExerciseNew } from "@/useExercise";
+import { ref } from "vue";
+import { newExercise } from "./exercise";
 
 const answerInput = ref<string | number>("");
 
@@ -48,23 +48,4 @@ function onCorrect() {
 }
 
 const exerciseHist = useExerciseNew(newExercise, onCorrect);
-
-const operators: Record<string, string> = {
-  addition: "+",
-  subtraction: "-",
-  multiplication: "⋅",
-  division: ":",
-};
-
-const exerciseText = computed(() => {
-  const exercise = exerciseHist.exercise.value as BasicArithmeticExercise;
-  return (
-    exercise.parameters.a +
-    " " +
-    operators[exerciseHist.exercise.value.parameters.operation] +
-    " " +
-    exercise.parameters.b +
-    " = "
-  );
-});
 </script>

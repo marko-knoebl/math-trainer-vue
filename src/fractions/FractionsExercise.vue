@@ -24,7 +24,7 @@ import { ref } from "vue";
 import MathExercise from "@/MathExercise.vue";
 import CorrectIncorrect from "@/components/CorrectIncorrect.vue";
 import { newExercise } from "./FractionsExercise";
-import { useExerciseNew } from "@/useExerciseNew";
+import { useExerciseNew } from "@/useExercise";
 import ExerciseStatistics from "@/components/ExerciseStatistics.vue";
 
 const answerInput = ref("");

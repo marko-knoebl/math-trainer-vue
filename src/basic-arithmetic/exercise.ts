@@ -16,6 +16,7 @@ type Parameters = {
 export type BasicArithmeticExercise = Exercise & {
   type: "basic-arithmetic";
   parameters: Parameters;
+  toString: () => String;
 };
 
 function newAdditionParameters(limit: number): Parameters {
@@ -48,7 +49,7 @@ function newDivisionParameters(limit: number): Parameters {
 export function newExercise(): BasicArithmeticExercise {
   const randIndex = Math.floor(Math.random() * OPERATIONS.length);
   const operation = OPERATIONS[randIndex];
-  let parameters;
+  let parameters: Parameters;
   let solution: number;
   if (operation === "addition") {
     parameters = newAdditionParameters(LIMIT_ADDITION);
@@ -71,10 +72,27 @@ export function newExercise(): BasicArithmeticExercise {
   function verify(s: string) {
     return s === getSolution();
   }
+  function toString() {
+    const operators: Record<string, string> = {
+      addition: "+",
+      subtraction: "-",
+      multiplication: "⋅",
+      division: ":",
+    };
+    return (
+      parameters.a +
+      " " +
+      operators[parameters.operation] +
+      " " +
+      parameters.b +
+      " = "
+    );
+  }
   return {
     type: "basic-arithmetic",
     parameters: parameters,
     getSolution,
     verify,
+    toString,
   };
 }
