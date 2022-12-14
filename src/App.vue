@@ -10,6 +10,7 @@ export default { components: { RouterLink, RouterView } };
       <router-link to="/">Startseite</router-link> |
       <router-link to="/times-table-bingo">Malsätzchenbingo</router-link> |
       <router-link to="/basic-arithmetic">Grundrechnungsarten</router-link> |
+      <router-link to="/equations-simple">Gleichungen (einfach)</router-link> |
       <router-link to="/equations-negative">Gleichungen</router-link> |
       <router-link to="/fractions">Brüche</router-link>
     </nav>

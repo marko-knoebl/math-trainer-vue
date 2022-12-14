@@ -9,7 +9,7 @@ function randIntInclusive(arg0: number, arg1: number) {
     max = arg1;
   }
   const range = max - min + 1;
-  const result = Math.floor(Math.random() * range);
+  const result = Math.floor(Math.random() * range) + min;
   return result;
 }
 
